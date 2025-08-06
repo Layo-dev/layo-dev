@@ -5,6 +5,7 @@ import { ExternalLink, Github, Eye } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import { useOptimizedProjects } from '@/hooks/useOptimizedQuery';
 import { getOptimizedAnimationProps } from '@/utils/performance';
+import { useScrollOptimization } from '@/hooks/useScrollOptimization';
 
 interface Project {
   id: string;
@@ -20,6 +21,7 @@ interface Project {
 }
 
 const Projects = () => {
+  const { shouldLoadContent } = useScrollOptimization({ enableDuringScroll: false });
   const { data: projects = [], isLoading: loading } = useOptimizedProjects(6);
   const { shouldAnimate, animationDuration } = getOptimizedAnimationProps();
 
@@ -75,9 +77,9 @@ const Projects = () => {
             {projects.map((project, index) => (
               <Card 
                 key={project.id} 
-                className={`group overflow-hidden bg-card/50 border-border backdrop-blur-sm hover:border-primary/50 transition-all hover:shadow-orange ${shouldAnimate ? 'animate-slide-up' : ''}`}
+                className={`group overflow-hidden bg-card/50 border-border backdrop-blur-sm hover:border-primary/50 transition-all hover:shadow-orange ${shouldAnimate && shouldLoadContent ? 'animate-slide-up' : ''}`}
                 style={{ 
-                  animationDelay: shouldAnimate ? `${index * 100}ms` : undefined,
+                  animationDelay: shouldAnimate && shouldLoadContent ? `${index * 100}ms` : undefined,
                   transitionDuration: `${animationDuration}ms`
                 }}
               >
@@ -88,7 +90,6 @@ const Projects = () => {
                       alt={project.title}
                       className="w-full h-40 xs:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      quality={80}
                     />
                   ) : (
                     <div className="w-full h-40 xs:h-48 bg-gradient-primary flex items-center justify-center">
