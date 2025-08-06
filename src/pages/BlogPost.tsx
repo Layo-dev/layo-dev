@@ -244,7 +244,6 @@ const BlogPost = () => {
                 alt={post.title}
                 className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                 sizes="(max-width: 768px) 100vw, 1200px"
-                quality={85}
               />
             </div>
           )}
@@ -287,7 +286,6 @@ const BlogPost = () => {
                         alt={relatedPost.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 768px) 50vw, 33vw"
-                        quality={75}
                       />
                     </div>
                   )}

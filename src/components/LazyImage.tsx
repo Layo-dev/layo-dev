@@ -1,25 +1,46 @@
 import { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
+import { useLazyImage } from '@/hooks/useLazyImage';
 
 interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   sizes?: string;
+  placeholder?: string;
 }
 
 const LazyImage = forwardRef<HTMLImageElement, LazyImageProps>(
-  ({ src, alt, className, sizes, ...props }, ref) => {
+  ({ src, alt, className, sizes, placeholder, ...props }, ref) => {
+    const { imageSrc, isLoaded, isInView, imgRef, handleLoad, handleError } = useLazyImage({
+      src,
+      placeholder,
+      threshold: 0.1
+    });
+
     return (
-      <img
-        ref={ref}
-        src={src}
-        alt={alt}
-        className={cn('transition-opacity duration-300', className)}
-        sizes={sizes}
-        loading="lazy"
-        decoding="async"
-        {...props}
-      />
+      <div className="relative overflow-hidden">
+        {/* Skeleton placeholder */}
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-muted animate-pulse" />
+        )}
+        
+        <img
+          ref={ref || imgRef}
+          src={imageSrc}
+          alt={alt}
+          className={cn(
+            'transition-all duration-500 ease-out',
+            isLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm',
+            className
+          )}
+          sizes={sizes}
+          loading="lazy"
+          decoding="async"
+          onLoad={handleLoad}
+          onError={handleError}
+          {...props}
+        />
+      </div>
     );
   }
 );

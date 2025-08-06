@@ -88,7 +88,6 @@ const Projects = () => {
                       alt={project.title}
                       className="w-full h-40 xs:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      quality={80}
                     />
                   ) : (
                     <div className="w-full h-40 xs:h-48 bg-gradient-primary flex items-center justify-center">
