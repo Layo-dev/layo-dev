@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -39,7 +41,7 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Orange gradients and effects */
+    /* Simple gradients and effects */
     --gradient-primary: linear-gradient(135deg, hsl(24 100% 50%), hsl(30 100% 60%));
     --gradient-dark: linear-gradient(135deg, hsl(220 13% 8%), hsl(220 13% 12%));
     --shadow-orange: 0 10px 40px hsl(24 100% 50% / 0.3);
@@ -60,4 +62,41 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Simple animations */
+@keyframes charIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-char-in {
+  animation: charIn 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.split-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
 }

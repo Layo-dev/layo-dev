@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Download, Mail } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
+import SplitText from '@/components/SplitText';
+import Squares from './squares';
 import heroImage from '@/assets/hero-portrait.jpg';
+
 const Hero = () => {
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
@@ -11,21 +14,48 @@ const Hero = () => {
       });
     }
   };
-  return <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      <div className="container mx-auto">
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
+      <Squares 
+        speed={0.5} 
+        squareSize={40}
+        direction='diagonal'
+        borderColor='#fff'
+        hoverFillColor='#222'
+      />
+      <div className="container mx-auto relative z-20">
         <div className="grid lg:grid-cols-2 gap-8 xs:gap-12 items-center">
           {/* Content */}
           <div className="space-y-6 xs:space-y-8 animate-fade-in">
             <div className="space-y-3 xs:space-y-4">
               <h1 className="font-poppins text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight px-2 xs:px-0">
-                Hi, I'm{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-primary">Onah Benedict</span>
+                <SplitText 
+                  text="Hi, I'm " 
+                  className="inline"
+                  delay={0}
+                  stagger={0.02}
+                />
+                <SplitText 
+                  text="Onah Benedict" 
+                  className="inline text-transparent bg-clip-text bg-gradient-primary"
+                  delay={0.3}
+                  stagger={0.02}
+                />
               </h1>
               <h2 className="font-poppins text-lg xs:text-xl sm:text-2xl lg:text-3xl font-medium text-muted-foreground px-2 xs:px-0">
-                Full Stack Developer
+                <SplitText 
+                  text="Full Stack Developer" 
+                  delay={0.8}
+                  stagger={0.015}
+                />
               </h2>
               <p className="font-inter text-base xs:text-lg text-muted-foreground max-w-lg leading-relaxed px-2 xs:px-0">
-                I'm a full-stack developer who crafts seamless digital experiences by combining Lovable's intuitive UI primitives, Supabase's robust backend services, and n8n's powerful workflow automation.
+                <SplitText 
+                  text="I'm a full-stack developer who crafts seamless digital experiences by combining Lovable's intuitive UI primitives, Supabase's robust backend services, and n8n's powerful workflow automation." 
+                  delay={1.2}
+                  stagger={0.008}
+                />
               </p>
             </div>
 
@@ -50,12 +80,13 @@ const Hero = () => {
                 alt="Onah Benedict - Full Stack Developer" 
                 className="relative w-64 h-64 xs:w-80 xs:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 475px) 256px, (max-width: 1024px) 320px, 384px"
-                quality={90}
               />
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

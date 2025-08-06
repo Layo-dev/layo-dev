@@ -1,5 +1,6 @@
 import { Code, Palette, Smartphone, Globe } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import Tilt from 'react-parallax-tilt';
 
 const Services = () => {
   const services = [
@@ -39,9 +40,17 @@ const Services = () => {
 
         <div className="grid grid-cols-1 xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xs:gap-8">
           {services.map((service, index) => (
-            <Card 
+            <Tilt
               key={index}
-              className="group bg-card hover:bg-gradient-dark border-border hover:border-primary/50 transition-all duration-500 hover:shadow-orange hover:-translate-y-2 animate-slide-up"
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              perspective={800}
+              glareEnable={true}
+              glareMaxOpacity={0.1}
+              glareColor="lightblue"
+              glarePosition="bottom"
+              glareBorderRadius="20px"
+              className="group bg-card hover:bg-gradient-dark border-border hover:border-primary/50 transition-all duration-500 hover:shadow-orange hover:-translate-y-2 animate-slide-up rounded-lg border"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-4 xs:p-6 text-center">
@@ -55,7 +64,7 @@ const Services = () => {
                   {service.description}
                 </p>
               </CardContent>
-            </Card>
+            </Tilt>
           ))}
         </div>
       </div>
