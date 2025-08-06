@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -34,9 +34,9 @@ const BlogPost = () => {
       fetchBlogPost(id);
       fetchRelatedPosts(id);
     }
-  }, [id]);
+  }, [id, fetchBlogPost, fetchRelatedPosts]);
 
-  const fetchBlogPost = async (postId: string) => {
+  const fetchBlogPost = useCallback(async (postId: string) => {
     try {
       const { data, error } = await supabase
         .from('blog_posts')
@@ -66,9 +66,9 @@ const BlogPost = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate, toast]);
 
-  const fetchRelatedPosts = async (currentPostId: string) => {
+  const fetchRelatedPosts = useCallback(async (currentPostId: string) => {
     try {
       const { data, error } = await supabase
         .from('blog_posts')
@@ -83,7 +83,7 @@ const BlogPost = () => {
     } catch (error) {
       console.error('Error fetching related posts:', error);
     }
-  };
+  }, []);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
