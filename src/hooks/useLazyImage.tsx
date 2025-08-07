@@ -4,20 +4,23 @@ interface UseLazyImageProps {
   src: string;
   placeholder?: string;
   threshold?: number;
+  shouldPause?: boolean;
 }
 
-export const useLazyImage = ({ src, placeholder, threshold = 0.1 }: UseLazyImageProps) => {
+export const useLazyImage = ({ src, placeholder, threshold = 0.1, shouldPause = false }: UseLazyImageProps) => {
   const [imageSrc, setImageSrc] = useState(placeholder || '');
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    if (shouldPause) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !shouldPause) {
           setIsInView(true);
-          if (src && !imageSrc) {
+          if (src && !imageSrc && !shouldPause) {
             setImageSrc(src);
           }
           observer.disconnect();
@@ -26,12 +29,12 @@ export const useLazyImage = ({ src, placeholder, threshold = 0.1 }: UseLazyImage
       { threshold, rootMargin: '50px' }
     );
 
-    if (imgRef.current) {
+    if (imgRef.current && !shouldPause) {
       observer.observe(imgRef.current);
     }
 
     return () => observer.disconnect();
-  }, [src, threshold, imageSrc]);
+  }, [src, threshold, imageSrc, shouldPause]);
 
   const handleLoad = () => {
     setIsLoaded(true);

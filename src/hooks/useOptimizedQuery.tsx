@@ -1,5 +1,6 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
+import { useScrollOptimization } from './useScrollOptimization';
 
 interface OptimizedQueryOptions {
   staleTime?: number;
@@ -12,6 +13,7 @@ export const useOptimizedQuery = <T,>(
   queryFn: () => Promise<T>,
   options: OptimizedQueryOptions = {}
 ) => {
+  const { shouldPause } = useScrollOptimization();
   const {
     staleTime = 5 * 60 * 1000, // 5 minutes
     gcTime = 10 * 60 * 1000, // 10 minutes  
@@ -24,7 +26,8 @@ export const useOptimizedQuery = <T,>(
     queryFn,
     staleTime,
     gcTime,
-    refetchOnWindowFocus,
+    refetchOnWindowFocus: refetchOnWindowFocus && !shouldPause,
+    enabled: !shouldPause,
     ...otherOptions,
   } as UseQueryOptions<T>);
 };
