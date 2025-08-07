@@ -5,7 +5,6 @@ import { ExternalLink, Github, Eye } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import { useOptimizedProjects } from '@/hooks/useOptimizedQuery';
 import { getOptimizedAnimationProps } from '@/utils/performance';
-import { useScrollOptimization } from '@/hooks/useScrollOptimization';
 
 interface Project {
   id: string;
@@ -23,7 +22,6 @@ interface Project {
 const Projects = () => {
   const { data: projects = [], isLoading: loading } = useOptimizedProjects(6);
   const { shouldAnimate, animationDuration } = getOptimizedAnimationProps();
-  const { shouldPause } = useScrollOptimization();
 
   if (loading) {
     return (
@@ -77,22 +75,20 @@ const Projects = () => {
             {projects.map((project, index) => (
               <Card 
                 key={project.id} 
-                className={`group overflow-hidden bg-card/50 border-border backdrop-blur-sm hover:border-primary/50 transition-all hover:shadow-orange ${shouldAnimate && !shouldPause ? 'animate-slide-up' : ''}`}
+                className={`group overflow-hidden bg-card/50 border-border backdrop-blur-sm hover:border-primary/50 transition-all hover:shadow-orange ${shouldAnimate ? 'animate-slide-up' : ''}`}
                 style={{ 
-                  animationDelay: shouldAnimate && !shouldPause ? `${index * 100}ms` : undefined,
-                  transitionDuration: `${animationDuration}ms`,
-                  transform: shouldPause ? 'translateZ(0)' : undefined
+                  animationDelay: shouldAnimate ? `${index * 100}ms` : undefined,
+                  transitionDuration: `${animationDuration}ms`
                 }}
               >
                 <div className="relative overflow-hidden">
                   {project.image_url ? (
-                     <LazyImage
-                       src={project.image_url}
-                       alt={project.title}
-                       className="w-full h-40 xs:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                       shouldPause={shouldPause}
-                     />
+                    <LazyImage
+                      src={project.image_url}
+                      alt={project.title}
+                      className="w-full h-40 xs:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
                   ) : (
                     <div className="w-full h-40 xs:h-48 bg-gradient-primary flex items-center justify-center">
                       <div className="text-primary-foreground text-4xl xs:text-6xl font-bold opacity-20">

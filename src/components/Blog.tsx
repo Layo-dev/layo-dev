@@ -6,7 +6,6 @@ import { Calendar, Clock, ArrowRight, ExternalLink } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import { useOptimizedBlogPosts } from '@/hooks/useOptimizedQuery';
 import { getOptimizedAnimationProps } from '@/utils/performance';
-import { useScrollOptimization } from '@/hooks/useScrollOptimization';
 
 interface BlogPost {
   id: string;
@@ -22,7 +21,6 @@ interface BlogPost {
 const Blog = () => {
   const { data: posts = [], isLoading: loading } = useOptimizedBlogPosts(6);
   const { shouldAnimate, animationDuration } = getOptimizedAnimationProps();
-  const { shouldPause } = useScrollOptimization();
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -86,11 +84,10 @@ const Blog = () => {
             {posts.map((post, index) => (
               <Card 
                 key={post.id} 
-                className={`group overflow-hidden bg-card/50 border-border backdrop-blur-sm hover:border-primary/50 transition-all hover:shadow-orange ${shouldAnimate && !shouldPause ? 'animate-slide-up' : ''}`}
+                className={`group overflow-hidden bg-card/50 border-border backdrop-blur-sm hover:border-primary/50 transition-all hover:shadow-orange ${shouldAnimate ? 'animate-slide-up' : ''}`}
                 style={{ 
-                  animationDelay: shouldAnimate && !shouldPause ? `${index * 100}ms` : undefined,
-                  transitionDuration: `${animationDuration}ms`,
-                  transform: shouldPause ? 'translateZ(0)' : undefined
+                  animationDelay: shouldAnimate ? `${index * 100}ms` : undefined,
+                  transitionDuration: `${animationDuration}ms`
                 }}
               >
                 {post.featured_image_url && (
@@ -100,7 +97,6 @@ const Blog = () => {
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      shouldPause={shouldPause}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                   </div>

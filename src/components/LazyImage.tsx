@@ -7,16 +7,14 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   sizes?: string;
   placeholder?: string;
-  shouldPause?: boolean;
 }
 
 const LazyImage = forwardRef<HTMLImageElement, LazyImageProps>(
-  ({ src, alt, className, sizes, placeholder, shouldPause, ...props }, ref) => {
+  ({ src, alt, className, sizes, placeholder, ...props }, ref) => {
     const { imageSrc, isLoaded, isInView, imgRef, handleLoad, handleError } = useLazyImage({
       src,
       placeholder,
-      threshold: 0.1,
-      shouldPause
+      threshold: 0.1
     });
 
     return (
