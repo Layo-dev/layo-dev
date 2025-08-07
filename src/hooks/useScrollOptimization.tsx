@@ -1,5 +1,19 @@
 import { useState, useEffect } from 'react';
-import { throttle } from '@/utils/performance';
+
+// Simple throttle implementation to avoid circular dependencies
+const throttle = <T extends (...args: any[]) => any>(
+  func: T,
+  delay: number
+): (...args: Parameters<T>) => void => {
+  let inThrottle: boolean;
+  return (...args: Parameters<T>) => {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), delay);
+    }
+  };
+};
 
 export const useScrollOptimization = () => {
   const [isScrolling, setIsScrolling] = useState(false);
