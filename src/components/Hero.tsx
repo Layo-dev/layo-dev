@@ -3,7 +3,7 @@ import { Download, Mail } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import SplitText from '@/components/SplitText';
 import Squares from './squares';
-import heroImage from '@/assets/hero-portrait.jpg';
+import heroImage from '@/assets/3d-nft-icon-developer-male-illustration.png';
 
 const Hero = () => {
   const scrollToContact = () => {
