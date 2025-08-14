@@ -72,9 +72,9 @@ const Hero = () => {
           </div>
 
           {/* Image */}
-          <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div className="relative group motion-safe:animate-in motion-safe:slide-in-from-right-12 motion-safe:fade-in-0 motion-safe:duration-700 motion-safe:ease-out motion-safe:delay-200">
-              
+          <div className="flex justify-center lg:justify-end animate-fade-in mt-8 lg:mt-0">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-primary rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
               <LazyImage 
                 src={heroImage} 
                 alt="Onah Benedict - Full Stack Developer" 
