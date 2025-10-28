@@ -27,9 +27,9 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-1 font-inter text-sm text-muted-foreground">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-primary animate-pulse" />
-            <span>© 2024 Layo.Dev</span>
+            <span>Made by Layo.Dev</span>
+
+            <span>© 2024 </span>
           </div>
         </div>
       </div>
