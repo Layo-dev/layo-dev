@@ -57,7 +57,7 @@ const About = () => {
           <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 xs:gap-8 animate-slide-up">
             <div className="text-center p-4 xs:p-6 bg-card/50 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-orange group">
               <div className="font-poppins text-2xl xs:text-4xl font-bold text-primary mb-1 xs:mb-2 group-hover:scale-110 transition-transform duration-300">
-                50+
+                5+
               </div>
               <div className="font-inter text-xs xs:text-base text-muted-foreground">
                 Projects Completed
@@ -66,7 +66,7 @@ const About = () => {
 
             <div className="text-center p-4 xs:p-6 bg-card/50 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-orange group">
               <div className="font-poppins text-2xl xs:text-4xl font-bold text-primary mb-1 xs:mb-2 group-hover:scale-110 transition-transform duration-300">
-                30+
+                5+
               </div>
               <div className="font-inter text-xs xs:text-base text-muted-foreground">
                 Happy Clients
