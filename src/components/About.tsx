@@ -2,8 +2,8 @@ import { Badge } from '@/components/ui/badge';
 
 const About = () => {
   const skills = [
-    'React', 'TypeScript', 'Node.js', 'Next.js', 'Python', 'PostgreSQL',
-    'MongoDB', 'AWS', 'Docker', 'GraphQL', 'Tailwind CSS', 'Figma'
+    'React', 'TypeScript', 'Node.js', 'HTML', 'CSS', 'PostgreSQL',
+   'Tailwind CSS', 'Figma', 'Lovable', 'Cursor', 'Supabase', 'vite'
   ];
 
   return (
@@ -18,7 +18,7 @@ const About = () => {
               </h2>
               <div className="space-y-3 xs:space-y-4 font-inter text-base xs:text-lg text-muted-foreground leading-relaxed px-2 xs:px-0">
                 <p>
-                  I'm a passionate full-stack developer with 5+ years of experience creating 
+                  I'm a passionate full-stack developer with 2+ years of experience creating 
                   digital solutions that make a difference. I specialize in modern web technologies 
                   and have a keen eye for design.
                 </p>
