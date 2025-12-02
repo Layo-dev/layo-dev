@@ -36,7 +36,7 @@ export const useOptimizedProjects = (limit = 6, offset = 0) => {
     async () => {
       const { data, error } = await supabase
         .from('projects')
-        .select('id, title, description, image_url, tech_stack, live_url, github_url, featured, order_index')
+        .select('id, title, description, image_url, tech_stack, live_url, github_url, featured, order_index, elevator_pitch, problem_statement, solution_approach, gallery_images, video_url')
         .order('order_index', { ascending: true })
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1);

@@ -111,41 +111,56 @@ export type Database = {
         Row: {
           created_at: string
           description: string
+          elevator_pitch: string | null
           featured: boolean
+          gallery_images: string[] | null
           github_url: string | null
           id: string
           image_url: string | null
           live_url: string | null
           order_index: number | null
+          problem_statement: string | null
+          solution_approach: string | null
           tech_stack: string[] | null
           title: string
           updated_at: string
+          video_url: string | null
         }
         Insert: {
           created_at?: string
           description: string
+          elevator_pitch?: string | null
           featured?: boolean
+          gallery_images?: string[] | null
           github_url?: string | null
           id?: string
           image_url?: string | null
           live_url?: string | null
           order_index?: number | null
+          problem_statement?: string | null
+          solution_approach?: string | null
           tech_stack?: string[] | null
           title: string
           updated_at?: string
+          video_url?: string | null
         }
         Update: {
           created_at?: string
           description?: string
+          elevator_pitch?: string | null
           featured?: boolean
+          gallery_images?: string[] | null
           github_url?: string | null
           id?: string
           image_url?: string | null
           live_url?: string | null
           order_index?: number | null
+          problem_statement?: string | null
+          solution_approach?: string | null
           tech_stack?: string[] | null
           title?: string
           updated_at?: string
+          video_url?: string | null
         }
         Relationships: []
       }
