@@ -229,7 +229,7 @@ const ProjectModal = ({ project, open, onOpenChange }: ProjectModalProps) => {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="flex-1"
+                    className="flex-1 w-full py-4 text-base sm:w-auto sm:py-3" 
                     onClick={() => window.open(project.github_url!, '_blank')}
                   >
                     <Github className="w-4 h-4 mr-2" />
