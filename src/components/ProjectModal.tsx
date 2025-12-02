@@ -4,7 +4,15 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { ExternalLink, Github, Target, Lightbulb, Wrench, Image, Play, X } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+
+interface ProjectTech {
+  id: string;
+  tech_name: string;
+  tech_purpose: string | null;
+  logo_url: string | null;
+}
 
 interface Project {
   id: string;
@@ -30,6 +38,20 @@ interface ProjectModalProps {
 
 const ProjectModal = ({ project, open, onOpenChange }: ProjectModalProps) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [projectTech, setProjectTech] = useState<ProjectTech[]>([]);
+
+  useEffect(() => {
+    if (project?.id && open) {
+      const fetchTech = async () => {
+        const { data } = await supabase
+          .from('project_tech')
+          .select('id, tech_name, tech_purpose, logo_url')
+          .eq('project_id', project.id);
+        setProjectTech(data || []);
+      };
+      fetchTech();
+    }
+  }, [project?.id, open]);
 
   if (!project) return null;
 
@@ -112,7 +134,7 @@ const ProjectModal = ({ project, open, onOpenChange }: ProjectModalProps) => {
               )}
 
               {/* Tech Stack */}
-              {project.tech_stack && project.tech_stack.length > 0 && (
+              {projectTech.length > 0 && (
                 <div className="mb-8">
                   <div className="flex items-center gap-2 mb-3">
                     <Wrench className="w-5 h-5 text-primary" />
@@ -120,15 +142,23 @@ const ProjectModal = ({ project, open, onOpenChange }: ProjectModalProps) => {
                       Tech Stack
                     </h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech_stack.map((tech, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
-                        className="px-3 py-1 text-sm"
+                  <div className="flex flex-wrap gap-3">
+                    {projectTech.map((tech) => (
+                      <div
+                        key={tech.id}
+                        className="flex items-center gap-2 bg-secondary/50 border border-border rounded-lg px-3 py-2"
                       >
-                        {tech}
-                      </Badge>
+                        {tech.logo_url && (
+                          <img
+                            src={tech.logo_url}
+                            alt={tech.tech_name}
+                            className="w-5 h-5 object-contain"
+                          />
+                        )}
+                        <span className="text-sm font-medium text-foreground">
+                          {tech.tech_name}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>
