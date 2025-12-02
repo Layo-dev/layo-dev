@@ -218,7 +218,7 @@ const ProjectModal = ({ project, open, onOpenChange }: ProjectModalProps) => {
                 {project.live_url && (
                   <Button
                     size="lg"
-                    className="flex-1"
+                    className="flex-1 w-full py-4 text-base sm:w-auto sm:py-3" 
                     onClick={() => window.open(project.live_url!, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
