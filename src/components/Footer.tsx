@@ -2,7 +2,7 @@ import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
 const Footer = () => {
   const socialLinks = [{
     icon: <Github className="w-5 h-5" />,
-    href: 'https//github.com/Layo-dev',
+    href: 'https://github.com/Layo-dev',
     label: 'GitHub'
   }, {
     icon: <Linkedin className="w-5 h-5" />,
