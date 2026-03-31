@@ -1,5 +1,7 @@
+import { Metric } from 'web-vitals';
+
 // Performance monitoring utilities
-export const reportWebVitals = (metric: any) => {
+export const reportWebVitals = (metric: Metric) => {
   if (process.env.NODE_ENV === 'production') {
     console.log(metric);
     // Send to analytics service in production
@@ -7,7 +9,7 @@ export const reportWebVitals = (metric: any) => {
 };
 
 // Debounce utility for form inputs
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
   func: T,
   delay: number
 ): (...args: Parameters<T>) => void => {
@@ -19,7 +21,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 };
 
 // Throttle utility for scroll events
-export const throttle = <T extends (...args: any[]) => any>(
+export const throttle = <T extends (...args: unknown[]) => unknown>(
   func: T,
   delay: number
 ): (...args: Parameters<T>) => void => {
