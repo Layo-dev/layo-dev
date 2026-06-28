@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Download, Mail } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import SplitText from '@/components/SplitText';
-import Squares from './squares';
+//import Squares from './squares';
 import heroImage from '@/assets/3d-nft-icon-developer-male-illustration.png';
 
 const Hero = () => {
@@ -17,13 +17,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      <Squares 
+      {/*<Squares 
         speed={0.5} 
         squareSize={40}
         direction='diagonal'
         borderColor='#fff'
         hoverFillColor='#222'
-      />
+      />*/}
       <div className="container mx-auto relative z-20">
         <div className="grid lg:grid-cols-2 gap-8 xs:gap-12 items-center">
           {/* Content */}
