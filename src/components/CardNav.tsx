@@ -132,6 +132,14 @@ const CardNav = ({
       >
         {/* Top bar */}
         <div className="card-nav-top">
+          <div className="card-nav-logo" style={{ color: menuColor }}>
+            {logo ? (
+              <img src={logo} alt={logoAlt} />
+            ) : (
+              <span className="card-nav-logo-text">{logoText}</span>
+            )}
+          </div>
+
           <button
             className="card-nav-toggle"
             onClick={toggle}
@@ -142,23 +150,6 @@ const CardNav = ({
               <span />
               <span />
             </span>
-          </button>
-
-          <div className="card-nav-logo" style={{ color: menuColor }}>
-            {logo ? (
-              <img src={logo} alt={logoAlt} />
-            ) : (
-              <span className="card-nav-logo-text">{logoText}</span>
-            )}
-          </div>
-
-          <button
-            className="card-nav-cta"
-            onClick={onCtaClick ?? (() => handleLinkClick('#contact'))}
-            style={{ background: buttonBgColor, color: buttonTextColor }}
-          >
-            {ctaLabel}
-            <GoArrowUpRight />
           </button>
         </div>
 
