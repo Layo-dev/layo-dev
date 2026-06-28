@@ -70,6 +70,10 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				surface: {
+					dark: 'hsl(var(--surface-dark))',
+					light: 'hsl(var(--surface-light))'
 				}
 			},
 			backgroundImage: {
