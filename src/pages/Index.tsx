@@ -52,11 +52,8 @@ const Index = () => {
         logoText="Layo.Dev"
         baseColor="#FAFAF7"
         menuColor="#111111"
-        buttonBgColor="#111111"
-        buttonTextColor="#FAFAF7"
         ease="power3.out"
         theme="light"
-        ctaLabel="Get in Touch"
       />
 
       <main>
