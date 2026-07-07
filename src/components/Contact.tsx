@@ -97,7 +97,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 xs:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
+    <section id="contact" className="py-16 xs:py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
       <div className="container mx-auto">
         <div className="text-center mb-12 xs:mb-16 animate-fade-in">
           <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 px-2 xs:px-0">
@@ -129,7 +129,7 @@ const Contact = () => {
                   href={info.link}
                   className="flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 bg-card/50 rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-orange group"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 xs:w-12 xs:h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center group-hover:bg-gradient-primary group-hover:text-primary-foreground transition-all duration-300 [&>svg]:w-5 [&>svg]:h-5 xs:[&>svg]:w-6 xs:[&>svg]:h-6">
+                  <div className="flex-shrink-0 w-10 h-10 xs:w-12 xs:h-12 bg-primary-foreground/10 text-primary-foreground rounded-lg flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-primary transition-all duration-300 [&>svg]:w-5 [&>svg]:h-5 xs:[&>svg]:w-6 xs:[&>svg]:h-6">
                     {info.icon}
                   </div>
                   <div className="min-w-0 flex-1">

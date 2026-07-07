@@ -43,7 +43,7 @@ const About = () => {
                   <Badge 
                     key={index}
                     variant="secondary"
-                    className="bg-secondary/50 text-foreground hover:bg-gradient-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 px-3 xs:px-4 py-1.5 xs:py-2 text-xs xs:text-sm font-medium animate-fade-in"
+                    className="bg-secondary/50 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 px-3 xs:px-4 py-1.5 xs:py-2 text-xs xs:text-sm font-medium animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {skill}
