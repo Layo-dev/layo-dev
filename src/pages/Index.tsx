@@ -13,30 +13,29 @@ import { useWebVitals } from '@/hooks/useWebVitals';
 const navItems = [
   {
     label: 'About',
-    bgColor: '#111111',
-    textColor: '#FAFAF7',
+    bgColor: '#1B1722',
+    textColor: '#FFFFFF',
     links: [
-      { label: 'Story', href: '#about', ariaLabel: 'About my story' },
-      { label: 'Services', href: '#services', ariaLabel: 'Services offered' },
+      { label: 'Company', href: '#about', ariaLabel: 'About Company' },
+      { label: 'Careers', href: '#services', ariaLabel: 'Careers' },
     ],
   },
   {
-    label: 'Work',
-    bgColor: '#1F1F1F',
-    textColor: '#FAFAF7',
+    label: 'Projects',
+    bgColor: '#2F293A',
+    textColor: '#FFFFFF',
     links: [
-      { label: 'Featured Projects', href: '#projects', ariaLabel: 'Featured projects' },
-      { label: 'Testimonials', href: '#testimonials', ariaLabel: 'Client testimonials' },
-      { label: 'Blog', href: '#blog', ariaLabel: 'Blog posts' },
+      { label: 'Featured', href: '#projects', ariaLabel: 'Featured Projects' },
+      { label: 'Case Studies', href: '#projects', ariaLabel: 'Project Case Studies' },
     ],
   },
   {
     label: 'Contact',
-    bgColor: '#111111',
-    textColor: '#FAFAF7',
+    bgColor: '#2F293A',
+    textColor: '#FFFFFF',
     links: [
-      { label: 'Email', href: '#contact', ariaLabel: 'Send an email' },
-      { label: 'WhatsApp', href: '#contact', ariaLabel: 'WhatsApp' },
+      { label: 'Email', href: '#contact', ariaLabel: 'Email us' },
+      { label: 'Twitter', href: '#contact', ariaLabel: 'Twitter' },
       { label: 'LinkedIn', href: '#contact', ariaLabel: 'LinkedIn' },
     ],
   },
@@ -52,9 +51,11 @@ const Index = () => {
         logoText="Layo.Dev"
         baseColor="#FAFAF7"
         menuColor="#111111"
+        buttonBgColor="#111111"
+        buttonTextColor="#FAFAF7"
         ease="power3.out"
-        theme="light"
       />
+
 
       <main>
         <Hero />
