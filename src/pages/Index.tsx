@@ -13,7 +13,7 @@ import { useWebVitals } from '@/hooks/useWebVitals';
 const navItems = [
   {
     label: 'About',
-    bgColor: '#1B1722',
+    bgColor: '#000000',
     textColor: '#FFFFFF',
     links: [
       { label: 'Company', href: '#about', ariaLabel: 'About Company' },
@@ -22,7 +22,7 @@ const navItems = [
   },
   {
     label: 'Projects',
-    bgColor: '#2F293A',
+    bgColor: '#000000',
     textColor: '#FFFFFF',
     links: [
       { label: 'Featured', href: '#projects', ariaLabel: 'Featured Projects' },
@@ -31,7 +31,7 @@ const navItems = [
   },
   {
     label: 'Contact',
-    bgColor: '#2F293A',
+    bgColor: '#000000',
     textColor: '#FFFFFF',
     links: [
       { label: 'Email', href: '#contact', ariaLabel: 'Email us' },
@@ -49,10 +49,10 @@ const Index = () => {
       <CardNav
         items={navItems}
         logoText="Layo.Dev"
-        baseColor="#FAFAF7"
-        menuColor="#111111"
-        buttonBgColor="#111111"
-        buttonTextColor="#FAFAF7"
+        baseColor="#F2F3ED"
+        menuColor="#000000"
+        buttonBgColor="#000000"
+        buttonTextColor="#FFFFFF"
         ease="power3.out"
       />
 

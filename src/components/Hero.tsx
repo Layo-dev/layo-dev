@@ -38,7 +38,7 @@ const Hero = () => {
                 />
                 <SplitText 
                   text="Onah Benedict" 
-                  className="inline text-transparent bg-clip-text bg-gradient-primary"
+                  className="inline text-primary"
                   delay={0.3}
                   stagger={0.02}
                 />

@@ -9,14 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-primary text-primary-foreground hover:shadow-orange hover:scale-105 shadow-lg font-semibold",
+        default: "bg-primary text-primary-foreground hover:opacity-90 shadow-lg font-semibold",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-orange",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-105",
+        outline: "border border-border bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "text-foreground hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline hover:text-primary/80",
-        hero: "bg-gradient-primary text-primary-foreground hover:shadow-orange-lg hover:scale-110 shadow-orange font-bold text-lg px-8 py-4 rounded-xl",
-        "outline-hero": "border-2 border-primary bg-transparent text-primary hover:bg-gradient-primary hover:text-primary-foreground hover:shadow-glow font-bold text-lg px-8 py-4 rounded-xl"
+        hero: "bg-primary text-primary-foreground hover:opacity-90 shadow-orange font-bold text-lg px-8 py-4 rounded-xl",
+        "outline-hero": "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground font-bold text-lg px-8 py-4 rounded-xl"
       },
       size: {
         default: "h-10 px-4 py-2",
