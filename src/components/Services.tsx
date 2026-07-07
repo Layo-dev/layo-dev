@@ -60,7 +60,7 @@ const Services = () => {
                 <h3 className="font-poppins text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-3">
                   {service.title}
                 </h3>
-                <p className="font-inter text-sm xs:text-base text-muted-foreground leading-relaxed">
+                <p className="font-inter text-sm xs:text-base text-foreground leading-relaxed">
                   {service.description}
                 </p>
               </CardContent>

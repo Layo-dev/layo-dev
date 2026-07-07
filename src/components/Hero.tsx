@@ -43,7 +43,7 @@ const Hero = () => {
                   stagger={0.02}
                 />
               </h1>
-              <h2 className="font-poppins text-lg xs:text-xl sm:text-2xl lg:text-3xl font-medium text-muted-foreground px-2 xs:px-0">
+              <h2 className="font-poppins text-lg xs:text-xl sm:text-2xl lg:text-3xl font-medium text-foreground px-2 xs:px-0">
                 <SplitText 
                   text="Full Stack Developer" 
                   delay={0.8}

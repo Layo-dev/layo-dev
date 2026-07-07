@@ -63,7 +63,7 @@ const Blog = () => {
   }
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
+    <section className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">

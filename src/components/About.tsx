@@ -7,7 +7,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 xs:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
+    <section id="about" className="py-16 xs:py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 xs:gap-12 items-center">
           {/* Content */}
