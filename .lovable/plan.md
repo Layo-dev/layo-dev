@@ -1,46 +1,60 @@
-## Replace CardNav with the exact React Bits design
+## Enforce strict monochrome brand: Cream `#F2F3ED`, Black `#000000`, White `#FFFFFF`
 
-Rebuild `src/components/CardNav.tsx` and `src/components/CardNav.css` to match the reference screenshots exactly (hamburger left, centered logo, "Get Started" pill on the right; expanded state shows 3 dark cards with arrow links).
+Replace every gradient and off-black with solid brand colors. No `bg-gradient-*`, no `#1B1722`/`#2F293A`/`#111111` fills — only cream, black, white (with subtle border/opacity variants already tokenized).
 
-### 1. `src/components/CardNav.tsx` — replace with the pasted reference
+### 1. `src/index.css` — flatten tokens
+- `--background`: cream `80 14% 94%`  ✓ (keep)
+- `--card`, `--popover`, `--surface-light`: **white** `0 0% 100%` (currently `#FAFAF7`)
+- `--foreground`, `--primary`, `--accent`, `--ring`, `--surface-dark`: **black** `0 0% 0%` (surface-dark currently `#111111`)
+- Replace gradient variables with flat colors so any leftover `bg-gradient-*` class renders solid black:
+  - `--gradient-primary: hsl(0 0% 0%);`
+  - `--gradient-dark: hsl(0 0% 0%);`
+- Shadows: keep neutral black-alpha (already are), rename intent stays.
 
-- Use the exact React Bits component you pasted (props: `logo`, `logoAlt`, `items`, `baseColor`, `menuColor`, `buttonBgColor`, `buttonTextColor`, `ease`, `className`).
-- Top bar layout: `[Hamburger] .... [Logo centered] .... [Get Started button]`.
-- Hamburger animates into an X when open (two lines → cross), matching the screenshot.
-- GSAP timeline animates nav height + staggers the 3 cards in.
-- Add a small `logoText` fallback so we can render "Layo.Dev" until the user drops in their SVG (kept minimal; when `logo` is provided it renders the `<img>` exactly as in the reference).
+### 2. `src/components/TestimonialCarousel.tsx`
+- All three `bg-gradient-dark` → `bg-primary text-primary-foreground` (solid black section, white text). Update inner card/text classes to read on black.
 
-### 2. `src/components/CardNav.css` — replace with the React Bits stylesheet
+### 3. `src/components/Contact.tsx`
+- Section `bg-gradient-dark` → `bg-primary text-primary-foreground`.
+- Inner icon tiles `group-hover:bg-gradient-primary` → `group-hover:bg-primary-foreground group-hover:text-primary` (or keep `bg-primary`).
+- `bg-card/50` panels → `bg-background/5` so they read on black.
 
-Match the reference precisely:
-- Container: fixed, top ~1.5rem, centered, max-width ~1100px, pill radius (border-radius 9999px collapsed → ~1.25rem expanded).
-- Background `#fff`, soft shadow, 1px border in `--border`.
-- Top bar: 60px tall, `display:flex`, hamburger absolutely-anchored left, logo centered via `position:absolute; left:50%; transform:translateX(-50%)`, CTA on the right.
-- Hamburger: two 2px black bars, 24px wide; `.open` state rotates them into an X.
-- CTA button: black pill, white text, `padding: 0.7rem 1.4rem`, radius 9999px.
-- Expanded content: 3-column grid, dark cards (`#1B1722` / `#2F293A`), white text, big label top-left (~1.75rem, Poppins/serif-ish weight 600), links bottom-left with `GoArrowUpRight` icon before the label.
-- Mobile (`max-width: 768px`): stack cards vertically, hide CTA label text or shrink it, keep hamburger + logo.
+### 4. `src/components/Hero.tsx`
+- `bg-clip-text bg-gradient-primary` on the highlighted word → plain `text-primary` (solid black word).
 
-### 3. `src/pages/Index.tsx` — update usage to the reference API
+### 5. `src/components/Services.tsx`
+- Card `hover:bg-gradient-dark` → `hover:bg-primary hover:text-primary-foreground`.
+- Icon `group-hover:bg-gradient-primary` → `group-hover:bg-primary group-hover:text-primary-foreground`.
 
-```tsx
-<CardNav
-  logoText="Layo.Dev"        // temporary until user provides logo.svg
-  items={navItems}            // About / Projects / Contact with the exact colors from the reference
-  baseColor="#FAFAF7"
-  menuColor="#111111"
-  buttonBgColor="#111111"
-  buttonTextColor="#FAFAF7"
-  ease="power3.out"
-/>
-```
+### 6. `src/components/About.tsx`
+- Badge `hover:bg-gradient-primary` → `hover:bg-primary hover:text-primary-foreground`.
 
-Update `navItems` colors to match the reference cards: About `#1B1722`, Projects `#2F293A`, Contact `#2F293A`, all with `#FFFFFF` text. Keep the existing `href` values so in-page anchors still work.
+### 7. `src/components/Footer.tsx`
+- Social icon `hover:bg-gradient-primary` → `hover:bg-primary hover:text-primary-foreground`.
+
+### 8. `src/components/Projects.tsx`
+- Placeholder tile `bg-gradient-primary` → `bg-primary text-primary-foreground`.
+- Keep the subtle `bg-gradient-to-t from-background/60` overlay only if it reads as neutral cream fade; otherwise switch to `from-background/70`.
+
+### 9. `src/components/Blog.tsx`
+- Same neutral fade overlay — keep (cream over image) since it uses `background` token, not a color gradient.
+
+### 10. `src/components/BackgroundElements.tsx`
+- Remove the orange/yellow/red orbs entirely. Replace with two subtle black orbs at very low opacity (`bg-primary opacity-[0.03] blur-3xl`) or drop the file's decorative orbs. Grid overlay: swap orange rgba lines for `rgba(0,0,0,0.03)`.
+
+### 11. `src/components/ui/button.tsx`
+- `default` variant: `bg-primary text-primary-foreground hover:opacity-90` (drop `bg-gradient-primary`, `hover:scale-105`, `shadow-orange`).
+- `hero` variant: same solid black treatment, keep size.
+- `outline-hero` hover: `hover:bg-primary hover:text-primary-foreground`.
+- Drop `shadow-orange*` / `hover:shadow-glow` (they're already neutral but rename usage stays — leave shadow tokens black-alpha).
+
+### 12. `src/pages/Index.tsx` (CardNav items)
+- `bgColor` values `#1B1722` and `#2F293A` → `#000000` for all three cards (About/Projects/Contact). `textColor` stays `#FFFFFF`.
+- CardNav base stays cream: change `baseColor="#FAFAF7"` → `baseColor="#F2F3ED"` and `buttonTextColor="#FAFAF7"` → `"#FFFFFF"`.
 
 ### Not touched
-Design tokens in `index.css`, other sections, GSAP version, react-icons dependency (already installed).
+- Layout, typography, spacing, animations, component structure, copy.
+- Muted-foreground gray stays for secondary text (readability) — it's neutral, not a brand color.
 
-### Technical notes
-- `react-icons` and `gsap` are already in `package.json` from the earlier install.
-- The pasted component uses `useLayoutEffect`; safe in this Vite CSR app.
-- Logo slot: `logo` prop stays optional in TS so the page can pass `logoText` for now and swap to `logo={logoUrl}` later without a code change.
+### Result
+Only cream, black, and white appear as brand surfaces. Any residual `bg-gradient-*` class falls back to solid black via the flattened CSS variables, so nothing renders as `#1B1722`/`#2F293A`/purple-black again.
