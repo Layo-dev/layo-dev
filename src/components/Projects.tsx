@@ -28,12 +28,10 @@ interface Project {
 const Projects = () => {
   const { data: projects = [], isLoading: loading } = useOptimizedProjects(6);
   const { shouldAnimate, animationDuration } = getOptimizedAnimationProps();
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleViewProject = (project: Project) => {
-    setSelectedProject(project);
-    setModalOpen(true);
+    navigate(`/project/${project.id}`);
   };
 
   if (loading) {
