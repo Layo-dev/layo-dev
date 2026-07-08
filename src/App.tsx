@@ -8,6 +8,7 @@ import { lazy, Suspense } from "react";
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
@@ -36,6 +37,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

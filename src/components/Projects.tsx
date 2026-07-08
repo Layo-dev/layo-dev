@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,7 +5,7 @@ import { ExternalLink, Github, Eye, Layers } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import { useOptimizedProjects } from '@/hooks/useOptimizedQuery';
 import { getOptimizedAnimationProps } from '@/utils/performance';
-import ProjectModal from '@/components/ProjectModal';
+import { useNavigate } from 'react-router-dom';
 
 interface Project {
   id: string;
@@ -29,12 +28,10 @@ interface Project {
 const Projects = () => {
   const { data: projects = [], isLoading: loading } = useOptimizedProjects(6);
   const { shouldAnimate, animationDuration } = getOptimizedAnimationProps();
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleViewProject = (project: Project) => {
-    setSelectedProject(project);
-    setModalOpen(true);
+    navigate(`/project/${project.id}`);
   };
 
   if (loading) {
@@ -197,12 +194,6 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Project Modal */}
-      <ProjectModal
-        project={selectedProject}
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-      />
     </>
   );
 };

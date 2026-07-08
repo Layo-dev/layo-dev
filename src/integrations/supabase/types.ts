@@ -162,6 +162,7 @@ export type Database = {
           role: string | null
           solution_approach: string | null
           tech_stack: string[] | null
+          timeline: string | null
           title: string
           updated_at: string
           video_url: string | null
@@ -182,6 +183,7 @@ export type Database = {
           role?: string | null
           solution_approach?: string | null
           tech_stack?: string[] | null
+          timeline?: string | null
           title: string
           updated_at?: string
           video_url?: string | null
@@ -202,6 +204,7 @@ export type Database = {
           role?: string | null
           solution_approach?: string | null
           tech_stack?: string[] | null
+          timeline?: string | null
           title?: string
           updated_at?: string
           video_url?: string | null
