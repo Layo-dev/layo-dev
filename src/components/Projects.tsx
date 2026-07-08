@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,7 +5,7 @@ import { ExternalLink, Github, Eye, Layers } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import { useOptimizedProjects } from '@/hooks/useOptimizedQuery';
 import { getOptimizedAnimationProps } from '@/utils/performance';
-import ProjectModal from '@/components/ProjectModal';
+import { useNavigate } from 'react-router-dom';
 
 interface Project {
   id: string;
