@@ -151,6 +151,7 @@ export type Database = {
           description: string
           elevator_pitch: string | null
           featured: boolean
+          features: string[] | null
           gallery_images: string[] | null
           github_url: string | null
           id: string
@@ -158,6 +159,7 @@ export type Database = {
           live_url: string | null
           order_index: number | null
           problem_statement: string | null
+          role: string | null
           solution_approach: string | null
           tech_stack: string[] | null
           title: string
@@ -169,6 +171,7 @@ export type Database = {
           description: string
           elevator_pitch?: string | null
           featured?: boolean
+          features?: string[] | null
           gallery_images?: string[] | null
           github_url?: string | null
           id?: string
@@ -176,6 +179,7 @@ export type Database = {
           live_url?: string | null
           order_index?: number | null
           problem_statement?: string | null
+          role?: string | null
           solution_approach?: string | null
           tech_stack?: string[] | null
           title: string
@@ -187,6 +191,7 @@ export type Database = {
           description?: string
           elevator_pitch?: string | null
           featured?: boolean
+          features?: string[] | null
           gallery_images?: string[] | null
           github_url?: string | null
           id?: string
@@ -194,6 +199,7 @@ export type Database = {
           live_url?: string | null
           order_index?: number | null
           problem_statement?: string | null
+          role?: string | null
           solution_approach?: string | null
           tech_stack?: string[] | null
           title?: string
