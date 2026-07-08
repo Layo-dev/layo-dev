@@ -8,6 +8,7 @@ import { lazy, Suspense } from "react";
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
