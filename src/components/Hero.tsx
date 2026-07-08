@@ -52,7 +52,7 @@ const Hero = () => {
               </h2>
               <p className="font-inter text-base xs:text-lg text-foreground max-w-lg leading-relaxed px-2 xs:px-0">
                 <SplitText 
-                  text="I'm a full-stack developer who crafts seamless digital experiences by combining Lovable's and cusor intuitive UI primitives, Supabase's robust backend services." 
+                  text="I'm a full-stack developer who crafts seamless digital experiences by combining thoughtful design with scalable, high-performance software. I build modern web applications that are intuitive, reliable, and tailored to solve real business problems." 
                   delay={1.2}
                   stagger={0.008}
                 />

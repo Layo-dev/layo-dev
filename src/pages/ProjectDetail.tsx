@@ -290,7 +290,7 @@ const ProjectDetail = () => {
               {/* Project Gallery */}
               {gallery.length > 0 && (
                 <section>
-                  <SectionHeading icon={ImageIcon}>Project Screens</SectionHeading>
+                  <SectionHeading icon={ImageIcon}>Project Gallery</SectionHeading>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {gallery.map((img, i) => (
                       <button

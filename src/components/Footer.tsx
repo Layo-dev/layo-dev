@@ -36,13 +36,13 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-6">
-            {socialLinks.map((link, index) => <a key={index} href={link.href} aria-label={link.label} className="w-10 h-10 bg-secondary/50 text-muted-foreground rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 hover:shadow-orange">
+            {socialLinks.map((link, index) => <a key={index} href={link.href} aria-label={link.label} className="w-10 h-10 bg-secondary/50 text-foreground rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 hover:shadow-orange">
                 {link.icon}
               </a>)}
           </div>
 
-          <div className="flex items-center space-x-1 font-inter text-sm text-muted-foreground">
-            <span>Made by Layo.Dev</span>
+          <div className="flex items-center space-x-1 font-inter text-sm text-foreground">
+            <span>Made by LayoDev</span>
 
             <span>© 2024 </span>
           </div>
