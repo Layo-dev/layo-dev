@@ -105,7 +105,7 @@ const Projects = () => {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     ) : (
-                      <div className="w-full h-40 xs:h-48 bg-gradient-primary flex items-center justify-center">
+                      <div className="w-full h-40 xs:h-48 bg-primary flex items-center justify-center">
                         <div className="text-primary-foreground text-4xl xs:text-6xl font-bold opacity-20">
                           {project.title.charAt(0)}
                         </div>

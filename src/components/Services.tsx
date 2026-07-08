@@ -50,11 +50,11 @@ const Services = () => {
               glareColor="lightblue"
               glarePosition="bottom"
               glareBorderRadius="20px"
-              className="group bg-card hover:bg-gradient-dark border-border hover:border-primary/50 transition-all duration-500 hover:shadow-orange hover:-translate-y-2 animate-slide-up rounded-lg border"
+              className="group bg-card hover:bg-primary hover:text-primary-foreground border-border hover:border-primary transition-all duration-500 hover:shadow-orange hover:-translate-y-2 animate-slide-up rounded-lg border"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-4 xs:p-6 text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 xs:w-16 xs:h-16 bg-primary/10 text-primary rounded-xl mb-3 xs:mb-4 group-hover:bg-gradient-primary group-hover:text-primary-foreground transition-all duration-500 group-hover:scale-110 [&>svg]:w-6 [&>svg]:h-6 xs:[&>svg]:w-8 xs:[&>svg]:h-8">
+                <div className="inline-flex items-center justify-center w-12 h-12 xs:w-16 xs:h-16 bg-primary/10 text-primary rounded-xl mb-3 xs:mb-4 group-hover:bg-primary-foreground group-hover:text-primary transition-all duration-500 group-hover:scale-110 [&>svg]:w-6 [&>svg]:h-6 xs:[&>svg]:w-8 xs:[&>svg]:h-8">
                   {service.icon}
                 </div>
                 <h3 className="font-poppins text-lg xs:text-xl font-semibold text-foreground mb-2 xs:mb-3">

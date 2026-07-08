@@ -13,40 +13,40 @@
     --background: 80 14% 94%;          /* #F2F3ED cream */
     --foreground: 0 0% 7%;             /* #111111 */
 
-    --card: 0 0% 98%;                  /* #FAFAF7 */
-    --card-foreground: 0 0% 7%;
+    --card: 0 0% 100%;                 /* #FFFFFF */
+    --card-foreground: 0 0% 0%;
 
-    --popover: 0 0% 98%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
     --primary: 0 0% 0%;                /* #000000 */
-    --primary-foreground: 0 0% 98%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 80 14% 94%;           /* #F2F3ED */
-    --secondary-foreground: 0 0% 7%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 80 14% 94%;
-    --muted-foreground: 220 9% 46%;    /* #6B7280 */
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 0 0% 7%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 45%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 60 9% 89%;               /* #E6E6DF */
+    --border: 60 9% 89%;
     --input: 60 9% 89%;
-    --ring: 0 0% 7%;
+    --ring: 0 0% 0%;
 
     /* Bespoke surfaces */
-    --surface-dark: 0 0% 7%;           /* #111111 */
-    --surface-light: 0 0% 98%;         /* #FAFAF7 */
+    --surface-dark: 0 0% 0%;           /* #000000 */
+    --surface-light: 0 0% 100%;        /* #FFFFFF */
 
     --radius: 0.75rem;
 
-    /* Monochrome gradients & shadows (keep variable names for compatibility) */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 17%));
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 7%), hsl(0 0% 12%));
+    /* Strict monochrome: cream / black / white only. Legacy gradient/shadow tokens flatten to solid black. */
+    --gradient-primary: hsl(0 0% 0%);
+    --gradient-dark: hsl(0 0% 0%);
     --shadow-orange: 0 10px 40px hsl(0 0% 0% / 0.12);
     --shadow-orange-lg: 0 20px 60px hsl(0 0% 0% / 0.18);
     --glow-orange: 0 0 30px hsl(0 0% 0% / 0.15);

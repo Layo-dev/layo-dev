@@ -94,7 +94,7 @@ const TestimonialCarousel = () => {
 
   if (loading) {
     return (
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <div className="h-8 bg-muted animate-pulse rounded w-64 mx-auto mb-4" />
@@ -118,7 +118,7 @@ const TestimonialCarousel = () => {
 
   if (testimonials.length === 0) {
     return (
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -140,7 +140,7 @@ const TestimonialCarousel = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
