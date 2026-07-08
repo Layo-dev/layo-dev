@@ -1,60 +1,56 @@
-## Enforce strict monochrome brand: Cream `#F2F3ED`, Black `#000000`, White `#FFFFFF`
+# Plan: Project Detail Page (replace modal)
 
-Replace every gradient and off-black with solid brand colors. No `bg-gradient-*`, no `#1B1722`/`#2F293A`/`#111111` fills — only cream, black, white (with subtle border/opacity variants already tokenized).
+Turn the current `ProjectModal` into a full route `/project/:id` that matches the reference screenshots and Layo.Dev's cream/black/white brand.
 
-### 1. `src/index.css` — flatten tokens
-- `--background`: cream `80 14% 94%`  ✓ (keep)
-- `--card`, `--popover`, `--surface-light`: **white** `0 0% 100%` (currently `#FAFAF7`)
-- `--foreground`, `--primary`, `--accent`, `--ring`, `--surface-dark`: **black** `0 0% 0%` (surface-dark currently `#111111`)
-- Replace gradient variables with flat colors so any leftover `bg-gradient-*` class renders solid black:
-  - `--gradient-primary: hsl(0 0% 0%);`
-  - `--gradient-dark: hsl(0 0% 0%);`
-- Shadows: keep neutral black-alpha (already are), rename intent stays.
+## Route & navigation
+- Add `/project/:id` route in `src/App.tsx` (lazy-loaded), pointing to new `src/pages/ProjectDetail.tsx`.
+- In `src/components/Projects.tsx`: remove `ProjectModal`, `selectedProject`, `modalOpen` state. `handleViewProject` becomes `navigate(`/project/${project.id}`)`.
+- Delete `src/components/ProjectModal.tsx`.
 
-### 2. `src/components/TestimonialCarousel.tsx`
-- All three `bg-gradient-dark` → `bg-primary text-primary-foreground` (solid black section, white text). Update inner card/text classes to read on black.
+## Page structure (top → bottom)
+Reuse the existing `CardNav` at the top (same as Index).
 
-### 3. `src/components/Contact.tsx`
-- Section `bg-gradient-dark` → `bg-primary text-primary-foreground`.
-- Inner icon tiles `group-hover:bg-gradient-primary` → `group-hover:bg-primary-foreground group-hover:text-primary` (or keep `bg-primary`).
-- `bg-card/50` panels → `bg-background/5` so they read on black.
+1. **Back link** — `← Back to Projects` (anchor to `/#projects`), cream pill icon + text.
+2. **Hero header** — Large bold title (Poppins, ~5xl/6xl), then a subtitle paragraph (project's `elevator_pitch` or `description`). A black pill `Visit Live Site ↗` button aligned right on desktop / stacked on mobile.
+3. **Meta bar** — Thin top border. Left sidebar (desktop) / stacked (mobile) with three blocks:
+   - `ROLE` — from new optional `role` field (fallback: "Full Stack Developer")
+   - `TIMELINE` — from new optional `timeline` field (fallback: hidden)
+   - `TECH STACK` — pill badges from `tech_stack`
+4. **Hero image** — full-width rounded image (`image_url`), 16:9.
+5. **Two-column body** (sticky left meta, right content on desktop; single column mobile):
+   - **Overview** section (icon + heading + prose from `description`)
+   - **Challenges & Solutions** — combines `problem_statement` + `solution_approach` OR two subheads
+   - **Key Features** — 2-col grid of bulleted pill cards (new optional `features` string[]; fallback: hide section)
+   - **Project Screens (Gallery)** — 2-col image grid, click to lightbox
+   - **Video Demo** — embedded iframe when `video_url` exists
+6. **Footer CTA row** — GitHub button + Live Demo button (both pill style).
+7. Reuse existing `Footer` component.
 
-### 4. `src/components/Hero.tsx`
-- `bg-clip-text bg-gradient-primary` on the highlighted word → plain `text-primary` (solid black word).
+## Data
+- Fetch single project by `id` via new hook `useProject(id)` in `src/hooks/useOptimizedQuery.tsx` (select all fields incl. `elevator_pitch, problem_statement, solution_approach, gallery_images, video_url`).
+- Fetch related `project_tech` for tech logos (same query modal uses).
+- Optional new columns `role` (text) and `timeline` (text) and `features` (text[]) — only add via migration if the user confirms; otherwise render fallbacks/hide.
+- Loading skeleton + 404 state (redirect to `/#projects` if not found).
 
-### 5. `src/components/Services.tsx`
-- Card `hover:bg-gradient-dark` → `hover:bg-primary hover:text-primary-foreground`.
-- Icon `group-hover:bg-gradient-primary` → `group-hover:bg-primary group-hover:text-primary-foreground`.
+## Styling (brand)
+- Only cream `#F2F3ED`, black `#000000`, white `#FFFFFF` + existing muted-foreground gray.
+- Section icons: small square with light cream bg + black stroke icon (lucide `Layers`, `Zap`, `Code2`, `Image`, `Play`).
+- Feature pills: `rounded-full bg-muted px-4 py-3` with black bullet dot.
+- Typography: Poppins headings, Inter body — already in project.
+- Responsive: single-column below `md`, sidebar layout at `md+`, generous padding.
+- Reuse image lightbox pattern from the current modal.
 
-### 6. `src/components/About.tsx`
-- Badge `hover:bg-gradient-primary` → `hover:bg-primary hover:text-primary-foreground`.
+## Technical notes
+- Scroll to top on mount.
+- SEO: set `<title>` and meta description per project via a small `useEffect` (no react-helmet needed).
+- Keep the existing modal-only fields optional; no schema changes required to ship v1.
 
-### 7. `src/components/Footer.tsx`
-- Social icon `hover:bg-gradient-primary` → `hover:bg-primary hover:text-primary-foreground`.
+## Files touched
+- Add `src/pages/ProjectDetail.tsx`
+- Edit `src/App.tsx` (route)
+- Edit `src/components/Projects.tsx` (navigate instead of modal)
+- Edit `src/hooks/useOptimizedQuery.tsx` (add `useProject`)
+- Delete `src/components/ProjectModal.tsx`
 
-### 8. `src/components/Projects.tsx`
-- Placeholder tile `bg-gradient-primary` → `bg-primary text-primary-foreground`.
-- Keep the subtle `bg-gradient-to-t from-background/60` overlay only if it reads as neutral cream fade; otherwise switch to `from-background/70`.
-
-### 9. `src/components/Blog.tsx`
-- Same neutral fade overlay — keep (cream over image) since it uses `background` token, not a color gradient.
-
-### 10. `src/components/BackgroundElements.tsx`
-- Remove the orange/yellow/red orbs entirely. Replace with two subtle black orbs at very low opacity (`bg-primary opacity-[0.03] blur-3xl`) or drop the file's decorative orbs. Grid overlay: swap orange rgba lines for `rgba(0,0,0,0.03)`.
-
-### 11. `src/components/ui/button.tsx`
-- `default` variant: `bg-primary text-primary-foreground hover:opacity-90` (drop `bg-gradient-primary`, `hover:scale-105`, `shadow-orange`).
-- `hero` variant: same solid black treatment, keep size.
-- `outline-hero` hover: `hover:bg-primary hover:text-primary-foreground`.
-- Drop `shadow-orange*` / `hover:shadow-glow` (they're already neutral but rename usage stays — leave shadow tokens black-alpha).
-
-### 12. `src/pages/Index.tsx` (CardNav items)
-- `bgColor` values `#1B1722` and `#2F293A` → `#000000` for all three cards (About/Projects/Contact). `textColor` stays `#FFFFFF`.
-- CardNav base stays cream: change `baseColor="#FAFAF7"` → `baseColor="#F2F3ED"` and `buttonTextColor="#FAFAF7"` → `"#FFFFFF"`.
-
-### Not touched
-- Layout, typography, spacing, animations, component structure, copy.
-- Muted-foreground gray stays for secondary text (readability) — it's neutral, not a brand color.
-
-### Result
-Only cream, black, and white appear as brand surfaces. Any residual `bg-gradient-*` class falls back to solid black via the flattened CSS variables, so nothing renders as `#1B1722`/`#2F293A`/purple-black again.
+## Open question
+Do you want me to also add DB columns for `role`, `timeline`, and `features` (list) now, or ship the page first with sensible fallbacks and add fields later?
