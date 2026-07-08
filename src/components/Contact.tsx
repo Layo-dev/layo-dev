@@ -100,10 +100,10 @@ const Contact = () => {
     <section id="contact" className="py-16 xs:py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
       <div className="container mx-auto">
         <div className="text-center mb-12 xs:mb-16 animate-fade-in">
-          <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 px-2 xs:px-0">
+          <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 px-2 xs:px-0">
             Get In Touch
           </h2>
-          <p className="font-inter text-base xs:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
+          <p className="font-inter text-base xs:text-lg text-primary-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
             Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
           </p>
         </div>
@@ -112,10 +112,10 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-6 xs:space-y-8 animate-fade-in">
             <div>
-              <h3 className="font-poppins text-xl xs:text-2xl font-semibold text-foreground mb-4 xs:mb-6 text-center lg:text-left">
+              <h3 className="font-poppins text-xl xs:text-2xl font-semibold text-primary-foreground mb-4 xs:mb-6 text-center lg:text-left">
                 Let's Start a Conversation
               </h3>
-              <p className="font-inter text-sm xs:text-base text-muted-foreground leading-relaxed px-2 xs:px-0">
+              <p className="font-inter text-sm xs:text-base text-primary-foreground leading-relaxed px-2 xs:px-0">
                 I'm always excited to take on new challenges and collaborate with amazing people. 
                 Whether you have a project in mind or just want to chat about technology, 
                 feel free to reach out!
@@ -127,16 +127,16 @@ const Contact = () => {
                 <a
                   key={index}
                   href={info.link}
-                  className="flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 bg-card/50 rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-orange group"
+                  className="flex items-center space-x-3 xs:space-x-4 p-3 xs:p-4 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-orange group"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 xs:w-12 xs:h-12 bg-primary-foreground/10 text-primary-foreground rounded-lg flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-primary transition-all duration-300 [&>svg]:w-5 [&>svg]:h-5 xs:[&>svg]:w-6 xs:[&>svg]:h-6">
+                  <div className="flex-shrink-0 w-10 h-10 xs:w-12 xs:h-12 bg-primary text-primary-foreground rounded-lg flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-primary transition-all duration-300 [&>svg]:w-5 [&>svg]:h-5 xs:[&>svg]:w-6 xs:[&>svg]:h-6">
                     {info.icon}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="font-poppins font-medium text-sm xs:text-base text-foreground group-hover:text-primary transition-colors duration-300">
+                    <div className="font-poppins font-medium text-sm xs:text-base text-primary group-hover:text-primary transition-colors duration-300">
                       {info.title}
                     </div>
-                    <div className="font-inter text-xs xs:text-sm text-muted-foreground break-words">
+                    <div className="font-inter text-xs xs:text-sm text-primary break-words">
                       {info.value}
                     </div>
                   </div>
@@ -146,7 +146,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-card/50 border-border backdrop-blur-sm animate-slide-up">
+          <Card className="bg-card border-border backdrop-blur-sm animate-slide-up">
             <CardContent className="p-6 xs:p-8">
               <form onSubmit={handleSubmit} className="space-y-4 xs:space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4">
@@ -157,7 +157,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 border-border focus:border-primary transition-colors duration-300 h-10 xs:h-11"
+                      className="bg-background border-border focus:border-primary transition-colors duration-300 h-10 xs:h-11"
                     />
                   </div>
                   <div>
@@ -168,7 +168,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-background/50 border-border focus:border-primary transition-colors duration-300 h-10 xs:h-11"
+                      className="bg-background border-border focus:border-primary transition-colors duration-300 h-10 xs:h-11"
                     />
                   </div>
                 </div>
@@ -180,7 +180,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="bg-background/50 border-border focus:border-primary transition-colors duration-300 h-10 xs:h-11"
+                    className="bg-background border-border focus:border-primary transition-colors duration-300 h-10 xs:h-11"
                   />
                 </div>
 

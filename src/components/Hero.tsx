@@ -50,7 +50,7 @@ const Hero = () => {
                   stagger={0.015}
                 />
               </h2>
-              <p className="font-inter text-base xs:text-lg text-muted-foreground max-w-lg leading-relaxed px-2 xs:px-0">
+              <p className="font-inter text-base xs:text-lg text-foreground max-w-lg leading-relaxed px-2 xs:px-0">
                 <SplitText 
                   text="I'm a full-stack developer who crafts seamless digital experiences by combining Lovable's and cusor intuitive UI primitives, Supabase's robust backend services." 
                   delay={1.2}

@@ -101,7 +101,7 @@ const TestimonialCarousel = () => {
             <div className="h-4 bg-muted animate-pulse rounded w-96 mx-auto" />
           </div>
           <div className="max-w-4xl mx-auto">
-            <Card className="bg-card/50 border-border backdrop-blur-sm">
+            <Card className="bg-card border-border backdrop-blur-sm">
               <CardContent className="p-8 md:p-12">
                 <div className="space-y-6">
                   <div className="h-4 bg-muted animate-pulse rounded" />
@@ -121,10 +121,10 @@ const TestimonialCarousel = () => {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Client Testimonials
+            <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+             Client Testimonials
             </h2>
-            <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-inter text-lg text-primary-foreground max-w-2xl mx-auto">
               What my clients say about working with me.
             </p>
           </div>
@@ -143,18 +143,18 @@ const TestimonialCarousel = () => {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
             Client Testimonials
           </h2>
-          <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-inter text-lg text-primary-foreground max-w-2xl mx-auto">
             What my clients say about working with me and the results we've achieved together.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          <Card className="bg-card/50 border-border backdrop-blur-sm overflow-hidden">
+          <Card className="bg-card border-border backdrop-blur-sm overflow-hidden">
             <CardContent className="p-8 md:p-12 relative">
-              <Quote className="absolute top-6 left-6 w-12 h-12 text-primary/20" />
+              <Quote className="absolute top-6 left-6 w-12 h-12 text-primary" />
               
               <div className="space-y-6">
                 <div className="flex justify-center">
@@ -165,16 +165,16 @@ const TestimonialCarousel = () => {
                   )}
                 </div>
 
-                <blockquote className="font-inter text-lg md:text-xl text-foreground leading-relaxed text-center italic">
+                <blockquote className="font-inter text-lg md:text-xl text-primary leading-relaxed text-center italic">
                   "{currentTestimonial.testimonial_text}"
                 </blockquote>
 
                 <div className="text-center">
-                  <div className="font-poppins text-lg font-semibold text-foreground">
+                  <div className="font-poppins text-lg font-semibold text-primary-foreground">
                     {currentTestimonial.client_name}
                   </div>
                   {(currentTestimonial.client_role || currentTestimonial.client_company) && (
-                    <div className="font-inter text-muted-foreground">
+                    <div className="font-inter text-primary">
                       {currentTestimonial.client_role}
                       {currentTestimonial.client_role && currentTestimonial.client_company && ', '}
                       {currentTestimonial.client_company}
