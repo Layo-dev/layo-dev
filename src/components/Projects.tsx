@@ -69,7 +69,7 @@ const Projects = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12 xs:mb-16 animate-fade-in">
             <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 px-2 xs:px-0">
-              Featured Projects
+              Projects
             </h2>
             <p className="font-inter text-base xs:text-lg text-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
               A showcase of my recent work, demonstrating expertise in modern web development,
