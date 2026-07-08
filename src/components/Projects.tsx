@@ -194,12 +194,6 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Project Modal */}
-      <ProjectModal
-        project={selectedProject}
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-      />
     </>
   );
 };
