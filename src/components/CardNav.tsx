@@ -42,7 +42,7 @@ const CardNav: React.FC<CardNavProps> = ({
   menuColor,
   buttonBgColor,
   buttonTextColor,
-  ctaLabel = 'Get Started',
+  ctaLabel = 'Hire Me',
   onCtaClick,
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);

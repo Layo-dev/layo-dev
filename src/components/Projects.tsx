@@ -74,7 +74,7 @@ const Projects = () => {
             <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 px-2 xs:px-0">
               Featured Projects
             </h2>
-            <p className="font-inter text-base xs:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
+            <p className="font-inter text-base xs:text-lg text-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
               A showcase of my recent work, demonstrating expertise in modern web development,
               user experience design, and scalable solutions.
             </p>
@@ -82,8 +82,8 @@ const Projects = () => {
 
           {projects.length === 0 ? (
             <div className="text-center py-16">
-              <h3 className="font-poppins text-xl text-muted-foreground mb-4">No projects yet</h3>
-              <p className="text-muted-foreground">Check back soon for new projects!</p>
+              <h3 className="font-poppins text-xl text-foreground mb-4">No projects yet</h3>
+              <p className="text-foreground">Check back soon for new projects!</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-8">
@@ -125,7 +125,7 @@ const Projects = () => {
                       {project.title}
                     </h3>
                     
-                    <p className="font-inter text-sm xs:text-base text-muted-foreground mb-3 xs:mb-4 line-clamp-3">
+                    <p className="font-inter text-sm xs:text-base text-foreground mb-3 xs:mb-4 line-clamp-3">
                       {project.description}
                     </p>
 
