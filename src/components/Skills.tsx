@@ -47,7 +47,7 @@ const Skills = () => {
           <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 px-2 xs:px-0">
             Tech Stack
           </h2>
-          <p className="font-inter text-base xs:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
+          <p className="font-inter text-base xs:text-lg text-foreground max-w-2xl mx-auto leading-relaxed px-2 xs:px-0">
             Technologies I use to build modern digital products.
           </p>
         </div>

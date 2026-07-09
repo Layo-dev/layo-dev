@@ -16,7 +16,7 @@ const About = () => {
               <h2 className="font-poppins text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 xs:mb-6 text-center lg:text-left px-2 xs:px-0">
                 About Me
               </h2>
-              <div className="space-y-3 xs:space-y-4 font-inter text-base xs:text-lg text-muted-foreground leading-relaxed px-2 xs:px-0">
+              <div className="space-y-3 xs:space-y-4 font-inter text-base xs:text-lg text-foreground leading-relaxed px-2 xs:px-0">
                 <p>
                   I'm a passionate full-stack developer with 2+ years of experience creating 
                   digital solutions that make a difference. I specialize in modern web technologies 
