@@ -16,7 +16,7 @@ const navItems = [
     bgColor: '#000000',
     textColor: '#FFFFFF',
     links: [
-      { label: 'Company', href: '#about', ariaLabel: 'About Company' },
+      { label: 'Me', href: '#about', ariaLabel: 'About Me' },
       { label: 'Careers', href: '#services', ariaLabel: 'Careers' },
     ],
   },
@@ -25,7 +25,7 @@ const navItems = [
     bgColor: '#000000',
     textColor: '#FFFFFF',
     links: [
-      { label: 'Featured', href: '#projects', ariaLabel: 'Featured Projects' },
+      { label: 'Portfolio', href: '#projects', ariaLabel: 'Featured Projects' },
       { label: 'Case Studies', href: '#projects', ariaLabel: 'Project Case Studies' },
     ],
   },
