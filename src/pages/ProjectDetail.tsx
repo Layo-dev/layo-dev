@@ -194,18 +194,18 @@ const ProjectDetail = () => {
             {/* Sidebar meta */}
             <aside className="lg:sticky lg:top-32 lg:self-start space-y-8 pb-8 lg:pb-0 border-b lg:border-b-0 border-border">
               <div>
-                <p className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-2">Role</p>
+                <p className="text-xs font-semibold tracking-[0.15em] text-foreground uppercase mb-2">Role</p>
                 <p className="font-poppins font-semibold text-foreground">{role}</p>
               </div>
               {timeline && (
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-2">Timeline</p>
+                  <p className="text-xs font-semibold tracking-[0.15em] text-foreground uppercase mb-2">Timeline</p>
                   <p className="font-poppins font-semibold text-foreground">{timeline}</p>
                 </div>
               )}
               {techStack.length > 0 && (
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-3">Tech Stack</p>
+                  <p className="text-xs font-semibold tracking-[0.15em] text-foreground uppercase mb-3">Tech Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {techStack.map((tech, i) => (
                       <Badge key={i} variant="secondary" className="rounded-full px-3 py-1 font-medium">
@@ -217,7 +217,7 @@ const ProjectDetail = () => {
               )}
               {projectTech.length > 0 && (
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.15em] text-muted-foreground uppercase mb-3">Built With</p>
+                  <p className="text-xs font-semibold tracking-[0.15em] text-foreground uppercase mb-3">Built With</p>
                   <div className="space-y-2">
                     {projectTech.map((tech) => (
                       <div key={tech.id} className="flex items-center gap-2 text-sm text-foreground">
