@@ -15,15 +15,15 @@ const Services = () => {
       description: 'Beautiful, intuitive user interfaces that provide exceptional user experiences.'
     },
     {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: 'Mobile Apps',
-      description: 'Cross-platform mobile applications that work seamlessly on any device.'
-    },
-    {
       icon: <Globe className="w-8 h-8" />,
       title: 'API Development',
       description: 'Robust backend systems and APIs that power your applications efficiently.'
-    }
+    },
+    {/*{
+      icon: <Smartphone className="w-8 h-8" />,
+      title: 'Mobile Apps',
+      description: 'Cross-platform mobile applications that work seamlessly on any device.'
+    },*/}
   ];
 
   return (
