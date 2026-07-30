@@ -8,6 +8,23 @@ import { LazyImage } from '@/components/LazyImage';
 import { Calendar, Clock, ArrowLeft, Share2, User, ChevronRight } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import CardNav from '@/components/CardNav';
+import logoSvg from '@/assets/CWB-logo.svg';
+
+const navItems = [
+  { label: 'About', bgColor: '#000000', textColor: '#FFFFFF', links: [
+    { label: 'Me', href: '/#about', ariaLabel: 'About Me' },
+    { label: 'Careers', href: '/#services', ariaLabel: 'Careers' },
+  ]},
+  { label: 'Projects', bgColor: '#000000', textColor: '#FFFFFF', links: [
+    { label: 'Portfolio', href: '/#projects', ariaLabel: 'Featured Projects' },
+    { label: 'Case Studies', href: '/#projects', ariaLabel: 'Project Case Studies' },
+  ]},
+  { label: 'Contact', bgColor: '#000000', textColor: '#FFFFFF', links: [
+    { label: 'Email', href: '/#contact', ariaLabel: 'Email us' },
+    { label: 'LinkedIn', href: '/#contact', ariaLabel: 'LinkedIn' },
+  ]},
+];
 
 interface BlogPost {
   id: string;
@@ -163,8 +180,17 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb Navigation */}
+      <CardNav
+        items={navItems}
+        logo={logoSvg}
+        logoAlt="Layo.Dev logo"
+        baseColor="#F2F3ED"
+        menuColor="#000000"
+        buttonBgColor="#000000"
+        buttonTextColor="#FFFFFF"
+        ease="power3.out"
+      />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8">
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary transition-colors">
             Home

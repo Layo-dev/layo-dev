@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import logoSvg from '@/assets/CWB-logo.svg';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,9 +37,7 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 xs:h-16">
-          <div className="font-poppins font-bold text-lg xs:text-xl text-primary">
-            Layo.Dev
-          </div>
+          <img src={logoSvg} alt="Layo.Dev logo" className="h-9 xs:h-11 w-auto object-contain" />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

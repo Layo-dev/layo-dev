@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import CardNav from '@/components/CardNav';
 import Footer from '@/components/Footer';
+import logoSvg from '@/assets/CWB-logo.svg';
 
 const navItems = [
   { label: 'About', bgColor: '#000000', textColor: '#FFFFFF', links: [
@@ -134,7 +135,8 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background font-inter">
       <CardNav
         items={navItems}
-        logoText="Layo.Dev"
+        logo={logoSvg}
+        logoAlt="Layo.Dev logo"
         baseColor="#F2F3ED"
         menuColor="#000000"
         buttonBgColor="#000000"
