@@ -35,7 +35,7 @@ const Footer = () => {
           <img
             src={logoSvg}
             alt="Layo.Dev logo"
-            className="h-8 w-auto object-contain"
+            className="h-14 w-auto object-contain"
           />
 
           <div className="flex items-center space-x-6">
