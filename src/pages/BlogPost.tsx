@@ -180,8 +180,17 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb Navigation */}
+      <CardNav
+        items={navItems}
+        logo={logoSvg}
+        logoAlt="Layo.Dev logo"
+        baseColor="#F2F3ED"
+        menuColor="#000000"
+        buttonBgColor="#000000"
+        buttonTextColor="#FFFFFF"
+        ease="power3.out"
+      />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8">
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary transition-colors">
             Home
