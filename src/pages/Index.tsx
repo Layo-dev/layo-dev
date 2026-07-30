@@ -10,6 +10,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { useWebVitals } from '@/hooks/useWebVitals';
+import logoSvg from '@/assets/CWB-logo.svg';
 
 const navItems = [
   {
@@ -49,7 +50,8 @@ const Index = () => {
     <div className="min-h-screen bg-background font-inter">
       <CardNav
         items={navItems}
-        logoText="Layo.Dev"
+        logo={logoSvg}
+        logoAlt="Layo.Dev logo"
         baseColor="#F2F3ED"
         menuColor="#000000"
         buttonBgColor="#000000"
