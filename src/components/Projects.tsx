@@ -186,7 +186,7 @@ const Projects = () => {
           )}
 
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="group">
+            <Button variant="outline" size="lg" className="group" onClick={() => navigate('/projects')}>
               View All Projects
               <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </Button>

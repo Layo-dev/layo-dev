@@ -7,6 +7,8 @@ import { lazy, Suspense } from "react";
 
 // Lazy load pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -36,6 +38,8 @@ const App = () => (
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
