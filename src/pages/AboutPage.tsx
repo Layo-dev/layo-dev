@@ -25,7 +25,7 @@ const whatIDo = [
     description: 'Supabase and Node.js backends, secure data models, auth and integrations that scale.',
   },
   {
-    icon: <Sparkles className="w-6 h-6" />,
+    //icon: <Sparkles className="w-6 h-6" />,
     title: 'AI-Assisted Builds',
     description: 'Shipping faster with AI tooling and automation, without cutting corners on quality.',
   },
