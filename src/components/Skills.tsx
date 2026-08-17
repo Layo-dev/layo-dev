@@ -39,6 +39,7 @@ const categories: Category[] = [
       { name: 'Cursor', logo: cursorLogo },
       { name: 'OpenAI', logo: openaiLogo },
       { name: 'GitHub', logo: githubLogo },
+      { name: 'Claude', logo: claudeLogo },
     ],
   },
 ];
