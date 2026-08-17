@@ -1,35 +1,35 @@
-## Plan: Skills / Tech Stack Section
+# Plan: About Me page + Projects page
 
-Create a new `Skills` section matching the reference screenshot layout, using Layo.Dev's cream/black/white brand.
+Two new routes in the CWB / Layo.Dev brand system (cream background, black surfaces, white text, Poppins headings, Inter body). Home page keeps its existing About and Projects sections.
 
-### Structure
-- Section heading `Tech Stack` (Poppins bold, centered)
-- Subtitle `Technologies I use to build modern digital products.` (muted)
-- Grid of 3 category cards (responsive: 1 col mobile → 2 col tablet → 3 col desktop)
+## Task 1 — About Me page (`/about`), no image
 
-### Cards
-Each card = rounded black card (`bg-surface-dark`, cream text) with:
-- Category title (Poppins, top-left)
-- List of tech pills: small rounded-full pills containing the SVG logo (16–18px) + name. Pill style: `bg-white/5 border border-white/10 text-cream px-3 py-1.5`
-- Pills wrap responsively (`flex flex-wrap gap-2`)
+Text-driven layout matching the reference: very large bold headline, generous whitespace, left-aligned content column, muted body text.
 
-### Categories & logos
-Use existing SVGs in `src/assets/` where available; use a neutral fallback (lucide icon or text-only pill) for missing ones. User will replace missing logos later.
+Sections in order:
 
-1. **Frontend** — React (`react.svg`), TypeScript (`typescript.svg`), Tailwind (`tailwindcss.svg`), Vite (fallback text pill, no svg yet)
-2. **Backend** — Node.js (`nodejs.svg`), Supabase (`supabase.svg`), PostgreSQL (`postgresql.svg`), REST APIs (fallback text pill)
-3. **AI & Dev** — Lovable (fallback), Cursor (fallback), OpenAI (fallback), GitHub (`github.svg`)
+1. **Hero headline** — oversized Poppins line ("I'm Benedict.") plus a positioning sentence in large bold type, then a short intro paragraph. No portrait.
+2. **Personal Information** — compact definition list: name, role, location (Nigeria), email, phone, availability.
+3. **Professional Positioning** — one bold statement paragraph on what kind of developer/partner he is.
+4. **What I Do** — 3–4 cards (Web Development, UI/UX, API/Backend, AI-assisted builds) reusing the Services card styling.
+5. **Process** — numbered blocks `01 / 02 / 03 / 04` (Discover, Design, Build, Launch & Support) on a light rounded panel, matching the numbered-card reference.
+6. **Short Background / Story** — 2–3 paragraphs of narrative copy.
+7. **CTA — Get in Touch** — bold collaborate-style headline, supporting line, black pill "Get In Touch" button linking to `/#contact`.
 
-### Files
-- Add `src/components/Skills.tsx` (new component)
-- Edit `src/pages/Index.tsx` to insert `<Skills />` after `<Services />` (or replace where appropriate — my recommendation: place directly after Services and before About)
+Copy will be drafted from the existing Hero/About text; easy to edit later.
 
-### Styling notes
-- Only cream/black/white + muted-foreground gray (brand rule)
-- Card: `rounded-2xl bg-surface-dark p-6 sm:p-8`
-- Fade-in animation on scroll (reuse existing `animate-fade-in`)
-- Mobile: single column, generous padding
-- Logos rendered as `<img>` with `alt` and `loading="lazy"`
+## Task 2 — Projects page (`/projects`)
 
-### Open question
-The existing `About` component already has a "Technical Skills" badges block. Keep both, or remove that block from About since the new Skills section supersedes it?
+- Full grid of all projects from Supabase (no 6-item limit), same card design as the home Projects section, with loading skeletons and empty state.
+- Page heading "Projects" + subtitle, cards link to the existing `/project/:id` detail page.
+- "View All Projects" button on the home Projects section now navigates to `/projects` (currently it does nothing).
+- Navbar: the Projects card's "Portfolio" link points to `/projects`; "Case Studies" stays on the home projects section. About card's "Me" link points to `/about`.
+
+## Technical notes
+
+- New files: `src/pages/AboutPage.tsx`, `src/pages/ProjectsPage.tsx`; both lazy-loaded and registered in `src/App.tsx` above the catch-all route.
+- Both pages reuse `CardNav` (with `CWB-logo.svg`), `Footer`, and `WhatsAppButton` for consistency.
+- Nav items are duplicated per page today; they will be extracted into a shared `src/config/navItems.ts` so the new links stay consistent everywhere.
+- Projects page uses the existing `useOptimizedProjects` hook with a higher limit; card markup extracted into a small shared `ProjectCard` component so home and the new page stay in sync.
+- Responsive: single column under 475px, 2 columns at md, 3 at lg; existing `xs` breakpoint and fade-in/slide-up animations reused.
+- SEO: unique title, meta description and canonical per page, single H1 each.
