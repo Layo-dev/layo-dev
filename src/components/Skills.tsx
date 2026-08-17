@@ -5,6 +5,10 @@ import nodejsLogo from '@/assets/nodejs.svg';
 import supabaseLogo from '@/assets/supabase.svg';
 import postgresqlLogo from '@/assets/postgresql.svg';
 import githubLogo from '@/assets/github.svg';
+import lovableLogo from '@/assets/lovable-color.svg';
+import openaiLogo from '@/assets/openai.svg';
+import claudeLogo from '@/assets/claude-color.svg';
+import cursorLogo from '@/assets/cursor.svg';
 
 type Tech = { name: string; logo?: string };
 type Category = { title: string; items: Tech[] };
@@ -31,9 +35,9 @@ const categories: Category[] = [
   {
     title: 'AI & Dev',
     items: [
-      { name: 'Lovable' },
-      { name: 'Cursor' },
-      { name: 'OpenAI' },
+      { name: 'Lovable', logo: lovableLogo },
+      { name: 'Cursor', logo: cursorLogo },
+      { name: 'OpenAI', logo: openaiLogo },
       { name: 'GitHub', logo: githubLogo },
     ],
   },
