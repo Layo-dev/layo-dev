@@ -1,38 +1,16 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, Eye, Layers } from 'lucide-react';
-import { LazyImage } from '@/components/LazyImage';
+import { ExternalLink } from 'lucide-react';
+import ProjectCard, { ProjectCardData } from '@/components/ProjectCard';
 import { useOptimizedProjects } from '@/hooks/useOptimizedQuery';
 import { getOptimizedAnimationProps } from '@/utils/performance';
 import { useNavigate } from 'react-router-dom';
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image_url: string | null;
-  tech_stack: string[] | null;
-  live_url: string | null;
-  github_url: string | null;
-  featured: boolean;
-  order_index: number;
-  created_at: string;
-  elevator_pitch?: string | null;
-  problem_statement?: string | null;
-  solution_approach?: string | null;
-  gallery_images?: string[] | null;
-  video_url?: string | null;
-}
 
 const Projects = () => {
   const { data: projects = [], isLoading: loading } = useOptimizedProjects(6);
   const { shouldAnimate, animationDuration } = getOptimizedAnimationProps();
   const navigate = useNavigate();
 
-  const handleViewProject = (project: Project) => {
-    navigate(`/project/${project.id}`);
-  };
 
   if (loading) {
     return (
