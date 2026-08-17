@@ -10,21 +10,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import CardNav from '@/components/CardNav';
 import Footer from '@/components/Footer';
 import logoSvg from '@/assets/CWB-logo.svg';
-
-const navItems = [
-  { label: 'About', bgColor: '#000000', textColor: '#FFFFFF', links: [
-    { label: 'Company', href: '/#about', ariaLabel: 'About Company' },
-    { label: 'Careers', href: '/#services', ariaLabel: 'Careers' },
-  ]},
-  { label: 'Projects', bgColor: '#000000', textColor: '#FFFFFF', links: [
-    { label: 'Featured', href: '/#projects', ariaLabel: 'Featured Projects' },
-    { label: 'Case Studies', href: '/#projects', ariaLabel: 'Project Case Studies' },
-  ]},
-  { label: 'Contact', bgColor: '#000000', textColor: '#FFFFFF', links: [
-    { label: 'Email', href: '/#contact', ariaLabel: 'Email us' },
-    { label: 'LinkedIn', href: '/#contact', ariaLabel: 'LinkedIn' },
-  ]},
-];
+import { navItems } from '@/config/navItems';
 
 interface ProjectTech {
   id: string;

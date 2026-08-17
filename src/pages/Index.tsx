@@ -11,37 +11,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { useWebVitals } from '@/hooks/useWebVitals';
 import logoSvg from '@/assets/CWB-logo.svg';
-
-const navItems = [
-  {
-    label: 'About',
-    bgColor: '#000000',
-    textColor: '#FFFFFF',
-    links: [
-      { label: 'Me', href: '#about', ariaLabel: 'About Me' },
-      { label: 'Careers', href: '#services', ariaLabel: 'Careers' },
-    ],
-  },
-  {
-    label: 'Projects',
-    bgColor: '#000000',
-    textColor: '#FFFFFF',
-    links: [
-      { label: 'Portfolio', href: '#projects', ariaLabel: 'Featured Projects' },
-      { label: 'Case Studies', href: '#projects', ariaLabel: 'Project Case Studies' },
-    ],
-  },
-  {
-    label: 'Contact',
-    bgColor: '#000000',
-    textColor: '#FFFFFF',
-    links: [
-      { label: 'Email', href: '#contact', ariaLabel: 'Email us' },
-      { label: 'Twitter', href: '#contact', ariaLabel: 'Twitter' },
-      { label: 'LinkedIn', href: '#contact', ariaLabel: 'LinkedIn' },
-    ],
-  },
-];
+import { navItems } from '@/config/navItems';
 
 const Index = () => {
   useWebVitals();
